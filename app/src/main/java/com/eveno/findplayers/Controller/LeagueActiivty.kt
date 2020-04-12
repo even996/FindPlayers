@@ -4,14 +4,14 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
-import com.eveno.findplayers.Utillites.EXTRA_LEAGUE
+import com.eveno.findplayers.Model.Player
 import com.eveno.findplayers.R
-import com.eveno.findplayers.Utillites.EXTRA_SKILL
+import com.eveno.findplayers.Utillites.EXTRA_PLAYER
 import kotlinx.android.synthetic.main.activity_league_actiivty.*
 
 class LeagueActiivty : BaseActivity() {
 
-    var selectedLeague = "";
+    var player = Player("","")
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -21,27 +21,27 @@ class LeagueActiivty : BaseActivity() {
     fun onMensClicked(view: View){
         womensLeagueButton.isChecked = false
         coedButton.isChecked = false
-        selectedLeague = "mens"
+        player.league = "mens"
     }
 
     fun onWomensClicked(view: View){
         mensLeagueButton.isChecked = false
         coedButton.isChecked = false
-        selectedLeague = "womens"
+        player.league = "womens"
 
     }
 
     fun onCoedClicked(view: View){
         mensLeagueButton.isChecked = false
         womensLeagueButton.isChecked = false
-        selectedLeague = "co-ed"
+        player.league = "co-ed"
     }
 
 
     fun leagueNextClicked(view: View){
-        if(selectedLeague != ""){
+        if(player.league != ""){
             val skill = Intent(this, SkillActivity::class.java)
-            skill.putExtra(EXTRA_LEAGUE, selectedLeague)
+            skill.putExtra(EXTRA_PLAYER, player)
             startActivity(skill)
         }else{
             Toast.makeText(this, "You need to choose between the above", Toast.LENGTH_SHORT).show()

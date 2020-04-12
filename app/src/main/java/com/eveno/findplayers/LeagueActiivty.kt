@@ -3,7 +3,7 @@ package com.eveno.findplayers
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 
-class LeagueActiivty : AppCompatActivity() {
+class LeagueActiivty : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

@@ -51,7 +51,7 @@ class LeagueActiivty : BaseActivity() {
 
 
     fun leagueNextClicked(view: View){
-        if(player.league != ""){
+        if(player.league != "" && (mensLeagueButton.isChecked || womensLeagueButton.isChecked || coedButton.isChecked)){
             val skill = Intent(this, SkillActivity::class.java)
             skill.putExtra(EXTRA_PLAYER, player)
             startActivity(skill)

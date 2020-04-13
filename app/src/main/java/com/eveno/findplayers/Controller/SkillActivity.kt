@@ -42,7 +42,7 @@ class SkillActivity : BaseActivity() {
     }
 
     fun onSkillFinishClicked(view: View) {
-        if (player.skill != "") {
+        if (player.skill != "" &&(beginnerSkillBtn.isChecked || ballerSkillBtn.isChecked)) {
             val finishActivity = Intent(this, SearchingForTeamActivity::class.java)
             finishActivity.putExtra(EXTRA_PLAYER, player)
             startActivity(finishActivity)
